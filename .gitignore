@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.scannerwork/
+.env
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
