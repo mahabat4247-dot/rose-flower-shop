@@ -1,12 +1,10 @@
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
 
 # Copy built static website files to Nginx web root directory
 COPY dist/ /usr/share/nginx/html/
 
-# Expose port 80
-EXPOSE 80
-USER nginx
+# Expose port 80 (Nginx unprivileged image listens on port 8080 by default for unprivileged binding)
+EXPOSE 8080
 
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD wget -q --spider http://127.0.0.1/ || exit 1
-# Nginx starts automatically in the foreground
+# Starts Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]

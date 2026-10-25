@@ -1,24 +1,23 @@
 {
-  "name": "rose-flower-shop",
+  "name": "grow-and-learn",
   "version": "1.0.0",
-  "description": "Modern and elegant website for Rose Flower Shop",
-  "main": "index.html",
+  "description": "Modern daycare and preschool website for young children",
+  "main": "src/index.html",
   "scripts": {
-    "lint:html": "htmlhint index.html",
-    "lint:js": "eslint script.js",
+    "lint:html": "htmlhint src/index.html",
+    "lint:js": "eslint src/script.js",
     "lint": "npm run lint:html && npm run lint:js",
-    "build": "node -e \"const fs = require('fs'); const path = require('path'); fs.rmSync('dist', { recursive: true, force: true }); fs.mkdirSync('dist', { recursive: true }); ['index.html', 'styles.css', 'script.js'].forEach(file => fs.copyFileSync(file, path.join('dist', file))); console.log('Build completed: files copied to dist/');\""
+    "build": "node -e \"const fs = require('fs'); const path = require('path'); fs.rmSync('dist', { recursive: true, force: true }); fs.mkdirSync('dist', { recursive: true }); ['index.html', 'styles.css', 'script.js'].forEach(file => fs.copyFileSync(path.join('src', file), path.join('dist', file))); console.log('Build completed: files copied to dist/');\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rose-flower-shop/rose-flower-shop.git"
+    "url": "git+https://github.com/grow-and-learn/grow-and-learn.git"
   },
   "keywords": [
-    "rose",
-    "flower",
-    "shop",
-    "ecommerce",
-    "boutique"
+    "daycare",
+    "preschool",
+    "education",
+    "early-learning"
   ],
   "author": "",
   "license": "ISC",

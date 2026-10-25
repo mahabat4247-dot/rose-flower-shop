@@ -29,7 +29,7 @@ jobs:
         run: npm run lint
 
   build:
-    name: Build Website
+    name: Build Application
     runs-on: ubuntu-latest
     needs: lint
     steps:
@@ -72,9 +72,9 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
   trivy:
-    name: Trivy Vulnerability Scan
+    name: Trivy Security Scan
     runs-on: ubuntu-latest
-    needs: build
+    needs: sonarqube
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -88,9 +88,9 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
   docker-build:
-    name: Docker Build Test
+    name: Docker Build
     runs-on: ubuntu-latest
-    needs: build
+    needs: trivy
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -102,12 +102,12 @@ jobs:
           path: dist
 
       - name: Build Docker Image
-        run: docker build -t rose-flower-shop:latest .
+        run: docker build -t grow-and-learn:latest .
 
   push-ecr:
     name: Push to Amazon ECR
     runs-on: ubuntu-latest
-    needs: [sonarqube, trivy, docker-build]
+    needs: docker-build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
@@ -133,7 +133,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY || 'grow-and-learn' }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .

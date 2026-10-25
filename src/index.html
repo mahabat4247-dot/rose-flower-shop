@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grow and Learn - Daycare & Preschool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">🌱 Grow and Learn</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+      <div class="container hero-content">
+        <h1>Welcome to Grow and Learn Daycare</h1>
+        <p>A safe, joyful, and nurturing environment where young minds flourish through play, curiosity, and creative exploration.</p>
+        <a href="#contact" class="btn">Enroll Today</a>
+      </div>
+    </section>
+
+    <section id="programs" class="programs-section">
+      <div class="container">
+        <h2>Our Educational Programs</h2>
+        <p class="section-subtitle">Tailored learning experiences designed for every stage of early childhood development.</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🧸</div>
+            <h3>Toddlers</h3>
+            <p>For ages 1 to 2. A warm, caring environment focused on sensory exploration, social interaction, and early language skills.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Preschool</h3>
+            <p>For ages 3 to 4. Interactive activities promoting creative expression, foundational math concepts, storytelling, and friendship.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>Early Learning</h3>
+            <p>For ages 4 to 5. Kindergarten readiness programs focused on critical thinking, early literacy, problem-solving, and independence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+          <p>At <strong>Grow and Learn</strong>, we believe every child is unique and deserves a loving atmosphere to discover their potential. Our certified educators combine structured activities with open-ended play to build confidence, kindness, and lifelong curiosity.</p>
+          <p>With outdoor play areas, nutritious snacks, and child-first safety protocols, we give parents peace of mind and children a second home.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p class="section-subtitle">We would love to hear from you! Visit us or get in touch to schedule a tour.</p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p><strong>📍 Address:</strong> 123 Sunshine Lane, Happy Valley, CA 90210</p>
+            <p><strong>📞 Phone:</strong> (555) 123-4567</p>
+            <p><strong>✉️ Email:</strong> hello@growandlearn.com</p>
+            <p><strong>⏰ Hours:</strong> Monday – Friday: 7:00 AM – 6:00 PM</p>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Parent's Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Send Message</button>
+            <div id="formFeedback" class="form-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Grow and Learn Daycare. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
